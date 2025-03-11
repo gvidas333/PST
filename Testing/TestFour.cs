@@ -7,7 +7,7 @@ using System.IO;
 using System.Threading;
 using SeleniumExtras.WaitHelpers;
 
-namespace Selenium
+namespace Testing
 {
     [TestFixture]
     public class TestFour
@@ -61,7 +61,8 @@ namespace Selenium
                 Console.WriteLine("Logged in with the newly created user");
                 
                 // 4. select digital downloads
-                driver.FindElement(By.XPath("//a[normalize-space()='Digital downloads']")).Click();
+                //driver.FindElement(By.XPath("//a[normalize-space()='Digital downloads']")).Click();
+                wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//a[normalize-space()='Digital downloads']"))).Click();
                 Console.WriteLine("Navigated to digital downloads");
                 
                 // 5. add products to the cart by reading from a text file
@@ -91,6 +92,7 @@ namespace Selenium
                 driver.FindElement(By.XPath("//input[contains(@id, 'termsofservice')]")).Click();
                 driver.FindElement(By.XPath("//button[contains(@id, 'checkout')]")).Click();
                 Console.WriteLine("Checked I agree and clicked continue");
+                Thread.Sleep(1000);
                 
                 // 8. fill in an address
                 try

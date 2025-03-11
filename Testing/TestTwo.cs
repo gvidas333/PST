@@ -4,7 +4,7 @@ using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Interactions;
 using SeleniumExtras.WaitHelpers;
 
-namespace Selenium;
+///namespace Selenium;
 
 class TestTwo
 {

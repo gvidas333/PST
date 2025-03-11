@@ -3,13 +3,17 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 
-namespace Selenium;
+namespace Testing;
 
 public class UserCreation
 {
     public static (string email, string password) RegisterUser()
     {
-        IWebDriver driver = new ChromeDriver();
+        var options = new ChromeOptions();
+        options.AddArgument("--start-maximized");
+        options.AddArgument("--disable-headless"); // Force non-headless mode
+        
+        IWebDriver driver = new ChromeDriver(options);
         WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
         IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
 
